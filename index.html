@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asim Azad | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+
+    <nav class="navbar">
+        <div class="logo">Portfolio<span>.</span></div>
+        <div class="nav-links">
+            <button class="nav-btn active" data-target="page-intro">About Me</button>
+            <button class="nav-btn" data-target="page-projects">Projects</button>
+            <button class="nav-btn" data-target="page-contact">Contact Me</button>
+        <a href="Asim_Azad_Resume.pdf" target="_blank" class="resume-btn">Resume</a>>
+        </div>
+    </nav>
+
+    <main class="content-container">
+
+        <!-- ABOUT ME -->
+        <section id="page-intro" class="page active">
+            <div class="hero">
+                <div class="profile-img-container">
+                    <img src="your-pic.jpg" alt="Asim Azad" class="profile-pic">
+                    <div class="ring ring1"></div>
+                    <div class="ring ring2"></div>
+                </div>
+
+                <h1 class="headline">
+                    <span class="char-split" id="name-text">Asim Azad</span>
+                    <span class="glitch-overlay" aria-hidden="true">Asim Azad</span>
+                </h1>
+
+                <div class="typewriter-container">
+                    <h2 class="sub-headline">
+                        <span class="bracket">&lt;</span>
+                        <span id="typed-text"></span><span class="cursor-blink">|</span>
+                        <span class="bracket">/&gt;</span>
+                    </h2>
+                </div>
+
+                <div class="divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon">⚡</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="count-up" data-target="4">0</span><sup>th</sup>
+                        <p>Semester</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="count-up" data-target="7">0</span><sup>+</sup>
+                        <p>Projects Done</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="page-projects" class="page">
+            <h2 class="section-title">
+                <span class="title-line"></span>
+                <span class="title-text">📂 My Projects</span>
+                <span class="title-line"></span>
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card" style="--card-hue: 195deg">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🎮</div>
+                    <h3>Quiz Game</h3>
+                    <p class="card-tag">C# · OOP</p>
+                    <button class="view-details-btn" onclick="openModal('Quiz Game', 'A fun and interactive quiz application built with C# with proper scoring and multiple difficulty levels.', 'https://github.com/asimazad/console-quiz-game-csharp', '🎮')">View Details</button>
+                </div>
+                <div class="project-card" style="--card-hue: 260deg">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">📦</div>
+                    <h3>Inventory System</h3>
+                    <p class="card-tag">OOP · C#</p>
+                    <button class="view-details-btn" onclick="openModal('Inventory System', 'Efficient management of stock and items using OOP principles. Tracks items, quantities, and generates reports.', 'https://github.com/asimazad/Inventory-Management-System-csharp', '📦')">View Details</button>
+                </div>
+                <div class="project-card" style="--card-hue: 310deg">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🚀</div>
+                    <h3>Space Management</h3>
+                    <p class="card-tag">SQL · Database</p>
+                    <button class="view-details-btn" onclick="openModal('Space Management', 'SQL based system for space tracking and allocation. Manages resources and records efficiently.', 'https://github.com/asimazad/space-management-system-mysql', '🚀')">View Details</button>
+                </div>
+                <div class="project-card" style="--card-hue: 160deg">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">👤</div>
+                    <h3>Portfolio</h3>
+                    <p class="card-tag">HTML · CSS · JS</p>
+                    <button class="view-details-btn" onclick="openModal('Portfolio', 'Personal developer portfolio website with smooth transitions, animations and responsive design.', 'https://github.com/asimazad/portfolio', '👤')">View Details</button>
+                </div>
+                <div class="project-card" style="--card-hue: 35deg">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🛒</div>
+                    <h3>Grocery Management</h3>
+                    <p class="card-tag">DSA · C++</p>
+                    <button class="view-details-btn" onclick="openModal('Grocery Management', 'Management system for grocery store using Data Structures and Algorithms for efficient operations.', 'https://github.com/asimazad/smart-grocery-management-system-dsa', '🛒')">View Details</button>
+                </div>
+                <div class="project-card" style="--card-hue: 220deg">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">⬇️</div>
+                    <h3>Social Media Downloader</h3>
+                    <p class="card-tag">Python · API</p>
+                    <button class="view-details-btn" onclick="openModal('Social Media Downloader', 'Download media files from YouTube and other platforms with ease. Supports multiple formats.', 'https://github.com/asimazad/media-downloader', '⬇️')">View Details</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL -->
+        <div id="projectModal" class="modal">
+            <div class="modal-backdrop" onclick="closeModal()"></div>
+            <div class="modal-content">
+                <div class="modal-icon-big" id="modalIcon">🎮</div>
+                <h2 id="modalTitle">Project Title</h2>
+                <p id="modalDesc">Description goes here.</p>
+                <a id="modalLink" href="#" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+                <button class="close-btn" onclick="closeModal()">← Back</button>
+            </div>
+        </div>
+
+        <!-- CONTACT -->
+        <section id="page-contact" class="page">
+            <h2 class="section-title">
+                <span class="title-line"></span>
+                <span class="title-text">✉️ Get In Touch</span>
+                <span class="title-line"></span>
+            </h2>
+
+            <div class="contact-grid">
+                <a href="https://wa.me/923556363944" target="_blank" class="contact-box" style="--contact-color: #25D366">
+                    <div class="contact-bg-glow"></div>
+                    <i class="fab fa-whatsapp contact-icon"></i>
+                    <h3>WhatsApp</h3>
+                    <p>Let's chat!</p>
+                </a>
+                <a href="mailto:asimsoftwareengineer70@gmail.com" class="contact-box" style="--contact-color: #EA4335">
+                    <div class="contact-bg-glow"></div>
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <h3>Email</h3>
+                    <p>Drop a message</p>
+                </a>
+                <a href="https://linkedin.com/in/asim-azad-4847453b8" target="_blank" class="contact-box" style="--contact-color: #0077B5">
+                    <div class="contact-bg-glow"></div>
+                    <i class="fab fa-linkedin contact-icon"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me</p>
+                </a>
+                <a href="https://github.com/asimazad" target="_blank" class="contact-box" style="--contact-color: #9b59b6">
+                    <div class="contact-bg-glow"></div>
+                    <i class="fab fa-github contact-icon"></i>
+                    <h3>GitHub</h3>
+                    <p>See my code</p>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
