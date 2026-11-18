@@ -1,0 +1,40 @@
+ASIM AZAD PORTFOLIO — IMAGE REPLACEMENT GUIDE
+
+All portfolio images are now loaded from the assets folder.
+To change a picture, overwrite the matching file with your own image and keep its exact filename.
+You do not need to edit HTML, CSS, or JavaScript.
+
+PROFILE PHOTOS
+assets/profile/hero-portrait.jpg       Main Home/Hero profile photo
+assets/profile/about-portrait.jpg      About section profile photo
+
+EDUCATION
+assets/education/must-campus.jpg       Campus photo
+
+PROJECT THUMBNAILS
+assets/projects/project-01.jpg         
+assets/projects/project-02.jpg        
+assets/projects/project-03.jpg         
+assets/projects/project-04.jpg         
+assets/projects/project-05.jpg        
+assets/projects/project-06.jpg       
+assets/projects/project-07.jpg        
+assets/projects/project-08.jpg         
+assets/projects/project-09.jpg         
+assets/projects/project-10.jpg        
+
+CERTIFICATE THUMBNAILS
+assets/certificates/certificate-01.jpg  
+assets/certificates/certificate-02.jpg  
+assets/certificates/certificate-03.jpg  
+assets/certificates/certificate-04.jpg  
+assets/certificates/certificate-05.jpg  
+assets/certificates/certificate-06.jpg 
+
+ACTIVITY / EXTRACURRICULAR THUMBNAILS
+assets/activities/activity-01.jpg      
+assets/activities/activity-02.jpg      
+assets/activities/activity-03.jpg      
+assets/activities/activity-04.jpg      
+assets/activities/activity-05.jpg      
+

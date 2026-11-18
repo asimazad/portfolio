@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asim Azad — Engineer | Devops | Problem Solver</title>
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <!-- Ambient Background Aurora Orbs -->
+  <div class="aurora-orb w-[420px] h-[420px] bg-emerald-600/25 -top-24 -left-20"></div>
+  <div class="aurora-orb w-[380px] h-[380px] bg-emerald-600/20 bottom-10 right-10" style="animation-delay: -6s;"></div>
+
+  <!-- Mobile Top Header (< lg) -->
+  <header class="lg:hidden sticky top-0 z-40 px-3 pt-3">
+    <div class="bento-panel px-4 py-3 flex items-center justify-end">
+      <div class="flex items-center gap-2.5">
+        <button id="mobileThemeBtn" type="button" aria-label="Toggle Theme" class="bento-subcard w-9 h-9 flex items-center justify-center text-sm">
+          <i id="mobileThemeIcon" class="fa-solid fa-moon text-emerald-400"></i>
+        </button>
+        <button id="openMobileNav" type="button" aria-label="Open Navigation" class="bento-subcard w-9 h-9 flex items-center justify-center text-sm">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar Backdrop -->
+  <div id="mobileBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-xs z-40 hidden lg:hidden"></div>
+
+  <!-- Main 16px Gap Bento Shell -->
+  <div class="relative z-10 max-w-[1480px] mx-auto p-3 sm:p-4 flex flex-col lg:flex-row gap-4 min-h-screen">
+
+    <!-- =========================================================================
+         LEFT FIXED SIDEBAR (275px on Desktop, Collapsible Mobile Drawer)
+         ========================================================================= -->
+    <aside id="sidebarDrawer" class="fixed lg:sticky top-3 lg:top-4 left-3 lg:left-0 z-50 h-[calc(100vh-24px)] lg:h-[calc(100vh-32px)] w-[275px] shrink-0 bento-panel p-5 flex flex-col justify-between transform -translate-x-[115%] lg:translate-x-0 transition-transform duration-300 ease-out overflow-y-auto">
+      
+      <div>
+        <!-- Mobile Drawer Close Button -->
+        <div class="flex lg:hidden items-center justify-end px-2 pt-1 pb-4">
+          <button id="closeMobileNav" type="button" aria-label="Close Menu" class="p-1.5 rounded-lg opacity-70 hover:opacity-100">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Exclusive Single-Tab Sidebar Navigation -->
+        <nav aria-label="Portfolio Sections" class="space-y-1.5 text-[13.5px] font-medium">
+          <button type="button" data-tab-target="home" class="sidebar-link tab-trigger active w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-left">
+            <i class="fa-solid fa-house w-4 text-center text-xs"></i>
+            <span>Home</span>
+          </button>
+          <button type="button" data-tab-target="about" class="sidebar-link tab-trigger w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-left">
+            <i class="fa-regular fa-user w-4 text-center text-xs"></i>
+            <span>About</span>
+          </button>
+          <button type="button" data-tab-target="experiences" class="sidebar-link tab-trigger w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-left">
+            <i class="fa-solid fa-briefcase w-4 text-center text-xs"></i>
+            <span>Experiences</span>
+          </button>
+          <button type="button" data-tab-target="projects" class="sidebar-link tab-trigger w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-left">
+            <i class="fa-regular fa-folder w-4 text-center text-xs"></i>
+            <span>Projects</span>
+          </button>
+          <button type="button" data-tab-target="skills" class="sidebar-link tab-trigger w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-left">
+            <i class="fa-solid fa-code w-4 text-center text-xs"></i>
+            <span>Skills</span>
+          </button>
+          <button type="button" data-tab-target="certifications" class="sidebar-link tab-trigger w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-left">
+            <i class="fa-solid fa-certificate w-4 text-center text-xs"></i>
+            <span>Certifications</span>
+          </button>
+          <button type="button" data-tab-target="extracurriculars" class="sidebar-link tab-trigger w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-left">
+            <i class="fa-regular fa-star w-4 text-center text-xs"></i>
+            <span>Extracurriculars</span>
+          </button>
+          <button type="button" data-tab-target="contact" class="sidebar-link tab-trigger w-full flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-left">
+            <i class="fa-regular fa-envelope w-4 text-center text-xs"></i>
+            <span>Contact Me</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Bottom Connect & Theme Toggle -->
+      <div class="pt-6 space-y-4">
+        <div>
+          <p class="px-2 text-[10px] font-semibold uppercase tracking-[0.16em]" style="color: var(--text-muted);">
+            Let's Connect
+          </p>
+          <div class="mt-2.5 px-1 flex items-center gap-2.5">
+            <a href="https://github.com/asimazad" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="bento-subcard w-9 h-9 rounded-full flex items-center justify-center text-xs hover:-translate-y-1 hover:text-emerald-400">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/asim-azad-4847453b8" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="bento-subcard w-9 h-9 rounded-full flex items-center justify-center text-xs hover:-translate-y-1 hover:text-indigo-400">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sliding Light / Dark Theme Pill Switch -->
+        <button id="themeTogglePill" type="button" aria-label="Switch Light or Dark Theme" class="theme-pill-track relative w-full h-11 rounded-full p-1 grid grid-cols-2 items-center cursor-pointer">
+          <span class="theme-pill-thumb absolute top-1 left-1 w-[calc(50%-4px)] h-[calc(100%-8px)] rounded-full"></span>
+          <span class="relative z-10 flex items-center justify-center text-xs transition-colors" id="sunLabel">
+            <i class="fa-regular fa-sun"></i>
+          </span>
+          <span class="relative z-10 flex items-center justify-center text-xs text-white transition-colors" id="moonLabel">
+            <i class="fa-solid fa-moon"></i>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- =========================================================================
+         RIGHT MAIN CONTENT AREA (Strict Single-Tab: ONLY 1 section visible at once)
+         ========================================================================= -->
+    <main class="flex-1 w-full max-w-full">
+
+      <!-- =========================================================
+           VIEW 1: HOME (Single-Screen Hero Fit — Zero Scroll Needed)
+           ========================================================= -->
+      <section id="tab-home" class="tab-view active-tab">
+        <div class="hero-surface relative overflow-hidden flex-1 flex flex-col justify-between p-5 sm:p-8 lg:p-10">
+          <!-- Twinkling Stars -->
+          <span class="star-twinkle hidden sm:block absolute top-8 right-[36%] w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
+          <span class="star-twinkle hidden sm:block absolute bottom-12 right-[44%] w-1 h-1 rounded-full bg-emerald-300" style="animation-delay: 1.2s;"></span>
+          <span class="star-twinkle hidden sm:block absolute top-14 right-[14%] w-1.5 h-1.5 rounded-full bg-indigo-300" style="animation-delay: 2.1s;"></span>
+
+          <div class="my-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+            <!-- Left Hero Copy -->
+            <div class="lg:col-span-7 space-y-4 relative z-10 text-center lg:text-left flex flex-col items-center lg:items-start">
+              <div class="glass-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium">
+                <span>👋</span>
+                <span>Welcome to my world</span>
+              </div>
+
+              <h1 class="font-display text-3xl sm:text-5xl lg:text-[52px] font-extrabold leading-[1.08] tracking-tight">
+                Hi, I'm <br />
+                <span class="shimmer-name">Asim Azad,</span>
+              </h1>
+
+              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-sm sm:text-base font-semibold">
+                <span class="text-indigo-400">Engineer</span>
+                <span class="opacity-30">|</span>
+                <span class="text-emerald-400">Data Science</span>
+                <span class="opacity-30">|</span>
+                <span id="dynamicRoleText" style="color: var(--text-primary);">Problem Solver</span><span class="typing-cursor"></span>
+              </div>
+
+              <p class="text-xs sm:text-sm lg:text-base max-w-lg leading-relaxed" style="color: var(--text-secondary);">
+                Building my little digital home where clean engineering meets creativity .
+              </p>
+
+              <div class="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                <button type="button" data-tab-target="projects" class="tab-trigger grad-cta px-6 py-3 rounded-full text-xs sm:text-sm font-semibold inline-flex items-center gap-2.5 cursor-pointer">
+                  <span>Explore My Work</span>
+                  <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+                <button type="button" data-tab-target="about" class="tab-trigger glass-badge px-5 py-3 rounded-full text-xs sm:text-sm font-semibold hover:border-emerald-500/40 transition-colors cursor-pointer">
+                  <span>About Me</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Orbital Portrait Visual -->
+            <div class="lg:col-span-5 relative flex items-center justify-center py-2">
+              <div class="relative w-[225px] h-[225px] sm:w-[275px] sm:h-[275px] xl:w-[305px] xl:h-[305px] flex items-center justify-center">
+                <div class="orbit-ring-2 absolute inset-0 rounded-full"></div>
+                <div class="orbit-ring-1 absolute inset-4 rounded-full"></div>
+
+                <!-- Circular Developer Portrait -->
+                <div class="relative w-[165px] h-[165px] sm:w-[200px] sm:h-[200px] xl:w-[220px] xl:h-[220px] rounded-full p-1 bg-gradient-to-tr from-emerald-600 via-emerald-500 to-emerald-400 shadow-2xl">
+                  <img
+                    id="heroPortraitImg"
+                    src="assets/profile/hero-portrait.jpg"
+                    alt="Asim Azad Ghibli Portrait"
+                    class="w-full h-full object-cover object-top rounded-full bg-[#141320]"
+                  />
+                </div>
+
+                <!-- Floating Code Badge -->
+                <div class="float-slow glass-badge absolute -left-3 sm:-left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-xs text-emerald-300 shadow-lg">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+
+                <!-- Top-Right Floating Pill -->
+                <div class="float-delayed glass-badge absolute -top-2 -right-2 sm:-right-5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-2xl text-[10px] sm:text-[11px] font-medium max-w-[155px] sm:max-w-[175px] shadow-xl">
+                  <span class="text-emerald-400 mr-1">🚀</span> Crafting ideas into impactful solutions.
+                </div>
+
+                <!-- Bottom-Right Currently Exploring Badge -->
+                <div class="glass-badge absolute -bottom-2 -right-2 sm:-right-5 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl shadow-xl max-w-[205px]">
+                  <div class="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-wider text-emerald-400">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>Currently Exploring</span>
+                  </div>
+                  <p class="text-[11px] font-semibold mt-0.5 truncate">DevOps & Cloud Systems</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compact Bottom Quick-Glance Strip (Fits inside the same 1-screen Home card) -->
+          <div class="mt-6 pt-4 border-t max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-2.5" style="border-color: var(--border-subtle);">
+            <div class="bento-subcard px-3.5 py-2.5 flex items-center gap-2.5">
+              <i class="fa-solid fa-graduation-cap text-emerald-400 text-xs"></i>
+              <div class="min-w-0">
+                <p class="text-[10px] uppercase tracking-wider" style="color: var(--text-muted);">Degree</p>
+                <p class="text-xs font-bold truncate">BS Software Engg.</p>
+              </div>
+            </div>
+            <div class="bento-subcard px-3.5 py-2.5 flex items-center gap-2.5">
+              <i class="fa-solid fa-server text-emerald-400 text-xs"></i>
+              <div class="min-w-0">
+                <p class="text-[10px] uppercase tracking-wider" style="color: var(--text-muted);">Focus</p>
+                <p class="text-xs font-bold truncate">DevOps & Relative Technologies</p>
+              </div>
+            </div>
+            <div class="bento-subcard px-3.5 py-2.5 flex items-center gap-2.5">
+              <i class="fa-solid fa-location-dot text-emerald-400 text-xs"></i>
+              <div class="min-w-0">
+                <p class="text-[10px] uppercase tracking-wider" style="color: var(--text-muted);">Based In</p>
+                <p class="text-xs font-bold truncate">Mirpur AJK, PK</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           VIEW 2: ABOUT ME (Bio, 5 Info Boxes, 4 Highlights, Education, Journey & Toolkit/Values)
+           ========================================================= -->
+      <section id="tab-about" class="tab-view space-y-4">
+        <div class="bento-panel p-6 sm:p-8">
+          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+            <i class="fa-regular fa-user"></i>
+            <span>About Me</span>
+          </div>
+          <p class="text-xs mt-0.5 mb-6" style="color: var(--text-secondary);">Get to know me better 👋</p>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-center">
+            <div class="lg:col-span-4 flex justify-center">
+              <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full p-1.5 bg-gradient-to-tr from-emerald-600 via-emerald-500 to-emerald-400 shadow-xl">
+                <img
+                  src="assets/profile/about-portrait.jpg"
+                  alt="Asim Azad"
+                  class="w-full h-full object-cover rounded-full"
+                />
+              </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-3.5">
+              <p class="text-sm sm:text-[15px] leading-relaxed" style="color: var(--text-secondary);">
+                I'm <strong style="color: var(--text-primary);">Asim Azad</strong>, a Software Engineering student at <strong class="text-emerald-400">MUST</strong> A young, dynamic, result-oriented, and productive first-class Undergraduate of software engineering with hands on experience in Development and analytical skills. I am a fast learner and an open-minded team player who is passionate about pursuing a career as a Developer and analysist, with the hope of making significant and enormous contributions via innovative research and Technology..
+              </p>
+              <p class="text-sm sm:text-[15px] leading-relaxed" style="color: var(--text-secondary);">
+                From  volunteering for communities that matter, I'm all about creating impactful digital experiences. Always down to build something cool — let's connect!
+              </p>
+              <p class="font-display italic text-sm font-semibold text-emerald-400 pt-1">Asim Azad</p>
+            </div>
+          </div>
+
+          <!-- 5 Metadata Info Boxes -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mt-7">
+            <div class="bento-subcard p-4">
+              <i class="fa-regular fa-calendar text-emerald-400 text-xs"></i>
+              <p class="text-[10px] uppercase tracking-wider mt-2" style="color: var(--text-muted);">Semester</p>
+              <p class="font-display text-sm font-bold mt-0.5">5th Semester</p>
+            </div>
+            <div class="bento-subcard p-4">
+              <i class="fa-solid fa-code text-emerald-400 text-xs"></i>
+              <p class="text-[10px] uppercase tracking-wider mt-2" style="color: var(--text-muted);">Major</p>
+              <p class="font-display text-sm font-bold mt-0.5">Software Engineering</p>
+            </div>
+            <div class="bento-subcard p-4">
+              <i class="fa-solid fa-graduation-cap text-amber-400 text-xs"></i>
+              <p class="text-[10px] uppercase tracking-wider mt-2" style="color: var(--text-muted);">University</p>
+              <p class="font-display text-sm font-bold mt-0.5">MUST</p>
+            </div>
+            <div class="bento-subcard p-4">
+              <i class="fa-solid fa-chart-line text-emerald-400 text-xs"></i>
+              <p class="text-[10px] uppercase tracking-wider mt-2" style="color: var(--text-muted);">CGPA</p>
+              <p class="font-display text-sm font-bold mt-0.5">3.1 / 4.00</p>
+            </div>
+            <div class="bento-subcard p-4 col-span-2 sm:col-span-1">
+              <i class="fa-solid fa-location-dot text-rose-400 text-xs"></i>
+              <p class="text-[10px] uppercase tracking-wider mt-2" style="color: var(--text-muted);">Location</p>
+              <p class="font-display text-sm font-bold mt-0.5">Mirpur AJK, Pakistan</p>
+            </div>
+          </div>
+
+          <!-- 3 Quick Stat Highlight Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3 max-w-4xl mx-auto">
+            <div class="bento-subcard p-4 flex items-center gap-3.5">
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xs shrink-0">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <div>
+                <p class="font-display text-base font-extrabold">10+</p>
+                <p class="text-[11px]" style="color: var(--text-muted);">Technologies Explored</p>
+              </div>
+            </div>
+            <div class="bento-subcard p-4 flex items-center gap-3.5">
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xs shrink-0">
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div>
+                <p class="font-display text-base font-extrabold">1+</p>
+                <p class="text-[11px]" style="color: var(--text-muted);">Years of Learning</p>
+              </div>
+            </div>
+            <div class="bento-subcard p-4 flex items-center gap-3.5">
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xs shrink-0">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+              </div>
+              <div>
+                <p class="font-display text-base font-extrabold">Always</p>
+                <p class="text-[11px]" style="color: var(--text-muted);">Learning & Improving</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education + Campus Visual -->
+        <div class="bento-panel p-6 sm:p-8">
+          <div class="flex items-center gap-2.5 mb-6">
+            <i class="fa-solid fa-graduation-cap text-emerald-400 text-lg"></i>
+            <h2 class="font-display text-xl sm:text-2xl font-bold">Education</h2>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-7 space-y-5 border-l-2 border-emerald-500/30 pl-5 ml-2">
+              <div class="relative">
+                <span class="absolute -left-[27px] top-1 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
+                <h3 class="font-display text-base font-bold">Secondary School Certificate </h3>
+                <p class="text-xs font-semibold text-emerald-400"> 86 %</p>
+                <p class="text-[11px] mt-1" style="color: var(--text-muted);">2020 – 2022 •APSACS Muzaffarabad</p>
+              </div>
+              <div class="relative">
+                <span class="absolute -left-[27px] top-1 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
+                <h3 class="font-display text-base font-bold">High School Certificate</h3>
+                <p class="text-xs font-semibold text-emerald-400"> 74 %</p>
+                <p class="text-[11px] mt-1" style="color: var(--text-muted);">2022 – 2024 • Govt. Model Science College</p>
+              </div>
+              <div class="relative">
+                <span class="absolute -left-[27px] top-1 w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20"></span>
+                <h3 class="font-display text-base font-bold">BS Software Engineering</h3>
+                <p class="text-xs font-semibold text-emerald-400">MUST</p>
+                <p class="text-[11px] mt-1" style="color: var(--text-muted);">2025 – Present • 5th Semester •Mirpur AJK, Pakistan</p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="relative h-56 rounded-2xl overflow-hidden border border-emerald-500/25 shadow-xl">
+                <img
+                  src="assets/education/must-campus.jpg"
+                  alt="MUST Campus"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0d0b1a] via-emerald-950/35 to-transparent flex items-end justify-center pb-5">
+                  <span class="font-display text-3xl font-extrabold tracking-widest text-emerald-200 drop-shadow-[0_0_15px_rgba(168,85,247,0.9)]">MUST</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive My Journey ("Explore My Journey -> Powering up...") -->
+        <div class="bento-panel p-6 sm:p-8">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-regular fa-compass text-emerald-400 text-lg"></i>
+              <h2 class="font-display text-xl sm:text-2xl font-bold">My Journey</h2>
+            </div>
+            <div class="flex items-center gap-3">
+              <button id="powerJourneyBtn" type="button" class="grad-cta px-4 py-2 rounded-full text-xs font-semibold inline-flex items-center gap-2 cursor-pointer">
+                <span id="powerJourneyLabel">Explore My Journey</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+              <span class="text-xs hidden sm:inline" style="color: var(--text-muted);">Click to power up the timeline, node by node.</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="journey-node bento-subcard p-5 transition-all duration-300" data-node="0">
+              <div class="journey-icon w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3 transition-all">
+                <i class="fa-solid fa-seedling"></i>
+              </div>
+              <h3 class="font-display text-sm font-bold text-emerald-400">The Pivot</h3>
+              <p class="text-xs mt-1.5 leading-relaxed" style="color: var(--text-secondary);">
+                Transitioned from a pre-medical background to follow a passion for computing, stepping into the world of computer science.
+              </p>
+            </div>
+            <div class="journey-node bento-subcard p-5 transition-all duration-300" data-node="1">
+              <div class="journey-icon w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3 transition-all">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <h3 class="font-display text-sm font-bold text-emerald-400">Learned & Built</h3>
+              <p class="text-xs mt-1.5 leading-relaxed" style="color: var(--text-secondary);">
+                Built a strong foundation in core programming paradigms and structural logic using C++, C#, Python and SQL.
+              </p>
+            </div>
+            <div class="journey-node bento-subcard p-5 transition-all duration-300" data-node="2">
+              <div class="journey-icon w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3 transition-all">
+                <i class="fa-solid fa-rocket"></i>
+              </div>
+              <h3 class="font-display text-sm font-bold text-emerald-400">Hands-on Projects</h3>
+              <p class="text-xs mt-1.5 leading-relaxed" style="color: var(--text-secondary);">
+                Designed and executed functional Console based projects, focusing on object-oriented structures, Data Structure and Efficent Design and Clean code.
+              </p>
+            </div>
+            <div class="journey-node bento-subcard p-5 transition-all duration-300" data-node="3">
+              <div class="journey-icon w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3 transition-all">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <h3 class="font-display text-sm font-bold text-emerald-400">Future Outlook</h3>
+              <p class="text-xs mt-1.5 leading-relaxed" style="color: var(--text-secondary);">
+                Actively expanding technical knowledge through DevOps, AI tools, and student community initiatives.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom 2-Column Split: Technical Toolkit & What I Believe In -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Technical Toolkit -->
+          <div class="lg:col-span-7 bento-panel p-6 sm:p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-table-cells-large text-emerald-400 text-base"></i>
+                <h2 class="font-display text-lg sm:text-xl font-bold">Technical Toolkit</h2>
+              </div>
+              <p class="text-xs mt-0.5 mb-5" style="color: var(--text-secondary);">Technologies I work with & love to explore</p>
+            </div>
+
+            <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+              <div class="h-20 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex flex-col items-center justify-center text-white shadow-lg hover:-translate-y-1 transition-transform">
+                <i class="fa-solid fa-mobile-screen-button text-xl"></i>
+                <span class="text-[10px] font-bold mt-1.5">C#</span>
+              </div>
+              <div class="h-20 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 flex flex-col items-center justify-center text-white shadow-lg hover:-translate-y-1 transition-transform">
+                <i class="fa-solid fa-bolt text-xl"></i>
+                <span class="text-[10px] font-bold mt-1.5">C++</span>
+              </div>
+              <div class="h-20 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 flex flex-col items-center justify-center text-slate-950 shadow-lg hover:-translate-y-1 transition-transform">
+                <span class="font-display text-lg font-extrabold">Py</span>
+                <span class="text-[10px] font-bold mt-0.5">Python</span>
+              </div>
+              <div class="h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-yellow-500 flex flex-col items-center justify-center text-white shadow-lg hover:-translate-y-1 transition-transform">
+                <i class="fa-brands fa-python text-xl"></i>
+                <span class="text-[10px] font-bold mt-1.5">MYSQL</span>
+              </div>
+              <div class="h-20 rounded-2xl bg-gradient-to-br from-emerald-500 to-amber-500 flex flex-col items-center justify-center text-white shadow-lg hover:-translate-y-1 transition-transform">
+                <i class="fa-solid fa-fire text-xl"></i>
+                <span class="text-[10px] font-bold mt-1.5">GitHub</span>
+              </div>
+              <div class="h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-800 flex flex-col items-center justify-center text-white shadow-lg hover:-translate-y-1 transition-transform">
+                <span class="font-display text-base font-extrabold">Vercel</span>
+                <span class="text-[10px] font-bold mt-1">Vercel</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- What I Believe In -->
+          <div class="lg:col-span-5 bento-panel p-6 sm:p-7">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-regular fa-heart text-emerald-400 text-base"></i>
+              <h2 class="font-display text-lg sm:text-xl font-bold">What I Believe In</h2>
+            </div>
+            <p class="text-xs mt-0.5 mb-4" style="color: var(--text-secondary);">Values that drive my work</p>
+
+            <div class="space-y-3">
+              <div class="bento-subcard p-3.5 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <div>
+                  <h3 class="font-display text-xs sm:text-sm font-bold">Clean Code</h3>
+                  <p class="text-[11.5px] mt-0.5" style="color: var(--text-secondary);">Writing simple, readable, and maintainable code from first principles.</p>
+                </div>
+              </div>
+              <div class="bento-subcard p-3.5 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                  <h3 class="font-display text-xs sm:text-sm font-bold">User First</h3>
+                  <p class="text-[11.5px] mt-0.5" style="color: var(--text-secondary);">Designing intuitive digital experiences that feel effortless to navigate.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           VIEW 3: EXPERIENCES
+           ========================================================= -->
+      <section id="tab-experiences" class="tab-view bento-panel p-6 sm:p-8">
+        <div class="flex items-center gap-2.5 mb-1">
+          <i class="fa-solid fa-briefcase text-emerald-400 text-lg"></i>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold">Experiences</h2>
+        </div>
+        <p class="text-xs sm:text-sm mb-6" style="color: var(--text-secondary);">My professional journey so far</p>
+
+        <div id="experiencesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- =========================================================
+           VIEW 4: PROJECTS (Visual Preview Cards + Category Filters + Next/Prev Pagination)
+           ========================================================= -->
+      <section id="tab-projects" class="tab-view bento-panel p-6 sm:p-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-regular fa-folder text-emerald-400 text-lg"></i>
+              <h2 class="font-display text-2xl sm:text-3xl font-bold">Projects</h2>
+            </div>
+            <p class="text-xs sm:text-sm mt-0.5" style="color: var(--text-secondary);">Things I've built with passion</p>
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" data-proj-filter="all" class="proj-filter-btn grad-cta px-3.5 py-1.5 rounded-full text-xs font-semibold cursor-pointer">All (9)</button>
+            <button type="button" data-proj-filter="MYSQL" class="proj-filter-btn bento-subcard px-3.5 py-1.5 rounded-full text-xs font-semibold cursor-pointer">SQL</button>
+            <button type="button" data-proj-filter="DS" class="proj-filter-btn bento-subcard px-3.5 py-1.5 rounded-full text-xs font-semibold cursor-pointer">Data Science</button>
+             <button type="button" data-proj-filter="C#" class="proj-filter-btn grad-cta px-3.5 py-1.5 rounded-full text-xs font-semibold cursor-pointer">C#</button>
+            <button type="button" data-proj-filter="C++" class="proj-filter-btn bento-subcard px-3.5 py-1.5 rounded-full text-xs font-semibold cursor-pointer">C++</button>
+          </div>
+      
+        </div>
+
+        <div id="projectsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+
+        <!-- Pagination Bar -->
+        <div class="mt-6 pt-4 border-t flex flex-col sm:flex-row items-center justify-between gap-3 text-xs" style="border-color: var(--border-subtle); color: var(--text-secondary);">
+          <span id="projPageSummary">Showing 1–4 of all projects</span>
+          <div class="flex items-center gap-2">
+            <button id="projPrevBtn" type="button" class="bento-subcard px-3.5 py-2 rounded-full font-semibold inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:pointer-events-none">
+              <i class="fa-solid fa-arrow-left text-[10px]"></i>
+              <span>Previous</span>
+            </button>
+            <div id="projPageNumbers" class="flex items-center gap-1.5"></div>
+            <button id="projNextBtn" type="button" class="grad-cta px-4 py-2 rounded-full font-semibold inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:pointer-events-none">
+              <span>Next</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           VIEW 5: SKILLS (Clean Pill Tags Layout)
+           ========================================================= -->
+      <section id="tab-skills" class="tab-view bento-panel p-6 sm:p-8">
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+          <i class="fa-solid fa-code"></i>
+          <span>Skills</span>
+        </div>
+        <h2 class="font-display text-2xl sm:text-3xl font-bold mt-1 mb-6">Tools & Technologies</h2>
+
+        <div id="skillsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+      </section>
+
+      <!-- =========================================================
+           VIEW 5B: CERTIFICATIONS (Cards + Next/Prev Pagination + Credential Modal)
+           ========================================================= -->
+      <section id="tab-certifications" class="tab-view bento-panel p-6 sm:p-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+              <i class="fa-solid fa-certificate"></i>
+              <span>Certifications</span>
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-bold mt-1">Verified Credentials & Courses</h2>
+            <p class="text-xs sm:text-sm mt-0.5" style="color: var(--text-secondary);">
+              Click any certificate card to preview details or verify credentials
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button id="certPrevBtn" type="button" class="bento-subcard px-3.5 py-2 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:pointer-events-none">
+              <i class="fa-solid fa-arrow-left text-[10px]"></i>
+              <span>Previous</span>
+            </button>
+            <button id="certNextBtn" type="button" class="grad-cta px-4 py-2 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:pointer-events-none">
+              <span>Next</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="certificationsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+        <!-- Certifications Pagination Footer -->
+        <div class="mt-6 pt-4 border-t flex items-center justify-between text-xs" style="border-color: var(--border-subtle); color: var(--text-secondary);">
+          <span id="certPageSummary">Showing 1–3 of all certifications</span>
+          <div id="certPageNumbers" class="flex items-center gap-1.5"></div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           VIEW 6: EXTRACURRICULARS (Compact Cards + Next/Prev Pagination + Detail Modal)
+           ========================================================= -->
+      <section id="tab-extracurriculars" class="tab-view bento-panel p-6 sm:p-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+          <div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-regular fa-star text-emerald-400 text-lg"></i>
+              <h2 class="font-display text-2xl sm:text-3xl font-bold">Extracurriculars</h2>
+            </div>
+            <p class="text-xs sm:text-sm mt-0.5" style="color: var(--text-secondary);">
+              Beyond academics — click any card or link icon to inspect full details
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="extraPrevBtn" type="button" class="bento-subcard px-3.5 py-2 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:pointer-events-none">
+              <i class="fa-solid fa-chevron-left text-[10px]"></i>
+              <span>Prev</span>
+            </button>
+            <button id="extraNextBtn" type="button" class="grad-cta px-4 py-2 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:pointer-events-none">
+              <span>Next</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="extracurricularsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+        <div class="mt-5 pt-4 border-t flex items-center justify-between text-xs" style="border-color: var(--border-subtle); color: var(--text-secondary);">
+          <span id="extraPageSummary">Showing 1–3 of all activities</span>
+          <div id="extraPageDots" class="flex items-center gap-1.5"></div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           VIEW 7: CONTACT ME (Displays ONLY when Contact Me is clicked)
+           ========================================================= -->
+      <section id="tab-contact" class="tab-view bento-panel p-6 sm:p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-6 space-y-4">
+            <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+              <i class="fa-regular fa-envelope"></i>
+              <span>Contact Me</span>
+            </div>
+            <h2 class="font-display text-2xl sm:text-4xl font-bold">
+              Let's build something memorable together.
+            </h2>
+            <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-secondary);">
+              Have a project idea, internship opportunity, or just want to say hi? Drop a message or copy my email directly.
+            </p>
+            <div class="pt-1 flex flex-wrap items-center gap-3">
+              <button id="copyEmailAction" type="button" class="bento-subcard px-5 py-3 rounded-full text-xs font-semibold flex items-center gap-2.5 cursor-pointer">
+                <i class="fa-regular fa-copy text-emerald-400"></i>
+                <span id="copyEmailText">asimazad203@gmail.com</span>
+              </button>
+            </div>
+          </div>
+
+          <form id="contactForm" class="lg:col-span-6 bento-subcard p-6 space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input type="text" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl text-xs sm:text-sm bg-transparent border focus:outline-none focus:border-emerald-500 transition-colors" style="border-color: var(--border-subtle);" />
+              <input type="email" required placeholder="Your Email" class="w-full px-4 py-3 rounded-xl text-xs sm:text-sm bg-transparent border focus:outline-none focus:border-emerald-500 transition-colors" style="border-color: var(--border-subtle);" />
+            </div>
+            <textarea rows="4" required placeholder="Tell me about your idea..." class="w-full px-4 py-3 rounded-xl text-xs sm:text-sm bg-transparent border focus:outline-none focus:border-emerald-500 transition-colors" style="border-color: var(--border-subtle);"></textarea>
+            <button type="submit" class="grad-cta w-full py-3.5 rounded-full text-xs sm:text-sm font-semibold cursor-pointer">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Toast Notification Banner -->
+  <div id="toastBanner" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 glass-badge px-4 py-3 rounded-full text-xs font-semibold shadow-xl">
+    <i class="fa-solid fa-circle-check text-emerald-400"></i>
+    <span id="toastMessage">Action completed!</span>
+  </div>
+
+  <!-- Project Inspection Modal -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="bento-panel max-w-lg w-full p-6 sm:p-7 space-y-4 animate-[tabEnter_0.3s_ease_forwards]">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <span id="modalProjBadge" class="px-3 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/15 text-emerald-400">Category</span>
+          <h3 id="modalProjTitle" class="font-display text-xl sm:text-2xl font-bold mt-2">Project Title</h3>
+        </div>
+        <button id="closeProjModal" type="button" aria-label="Close Project Details" class="p-1.5 opacity-70 hover:opacity-100 cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <p id="modalProjDesc" class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);"></p>
+      <div id="modalProjHighlights" class="space-y-2 text-xs" style="color: var(--text-secondary);"></div>
+      <div id="modalProjTags" class="flex flex-wrap gap-1.5 pt-1"></div>
+      <div class="pt-3 flex items-center justify-end gap-3 border-t" style="border-color: var(--border-subtle);">
+        <a id="modalProjRepo" href="https://github.com" target="_blank" rel="noopener noreferrer" class="grad-cta px-5 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2">
+          <i class="fa-brands fa-github"></i>
+          <span>View Source Code</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extracurricular Activity Detail Modal (Opens when clicking top-right link icon or card) -->
+  <div id="extraModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/82 backdrop-blur-md">
+    <div class="bento-panel max-w-lg w-full overflow-hidden animate-[tabEnter_0.28s_ease_forwards]">
+      <div class="relative h-52 overflow-hidden bg-black">
+        <img id="modalExtraImg" src="" alt="Activity Preview" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#12111d] via-transparent to-black/30"></div>
+        <button id="closeExtraModal" type="button" aria-label="Close Activity Details" class="absolute top-3.5 right-3.5 w-9 h-9 rounded-full grad-cta flex items-center justify-center text-xs cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <span id="modalExtraBadge" class="absolute bottom-3 left-5 px-3 py-1 rounded-full text-[10.5px] font-bold bg-emerald-600/90 text-white">
+          Role / Year
+        </span>
+      </div>
+      <div class="p-6 space-y-3.5">
+        <div>
+          <h3 id="modalExtraTitle" class="font-display text-xl font-bold">Activity Title</h3>
+          <p id="modalExtraOrg" class="text-xs font-semibold text-emerald-400 mt-0.5">Organization</p>
+        </div>
+        <p id="modalExtraDesc" class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);"></p>
+        <div id="modalExtraHighlights" class="space-y-1.5 text-xs pt-1" style="color: var(--text-secondary);"></div>
+        <div class="pt-3 flex items-center justify-end gap-2.5 border-t" style="border-color: var(--border-subtle);">
+          <a id="modalExtraLink" href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="grad-cta px-5 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2">
+            <span>View Post / Certificate</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certification Detail Modal -->
+  <div id="certModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/82 backdrop-blur-md">
+    <div class="bento-panel max-w-lg w-full overflow-hidden animate-[tabEnter_0.28s_ease_forwards]">
+      <div class="relative h-48 overflow-hidden bg-black">
+        <img id="modalCertImg" src="" alt="Certificate Preview" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#12111d] via-black/30 to-transparent"></div>
+        <button id="closeCertModal" type="button" aria-label="Close Certificate Details" class="absolute top-3.5 right-3.5 w-9 h-9 rounded-full grad-cta flex items-center justify-center text-xs cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <span id="modalCertDate" class="absolute bottom-3 left-5 px-3 py-1 rounded-full text-[10.5px] font-bold bg-emerald-600/90 text-white">
+          Issued 2026
+        </span>
+      </div>
+      <div class="p-6 space-y-3.5">
+        <div>
+          <h3 id="modalCertTitle" class="font-display text-xl font-bold">Certificate Title</h3>
+          <p id="modalCertIssuer" class="text-xs font-semibold text-emerald-400 mt-0.5">Issuing Organization</p>
+        </div>
+        <p id="modalCertDesc" class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);"></p>
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t text-xs" style="border-color: var(--border-subtle);">
+          <span id="modalCertId" class="font-mono text-[11px]" style="color: var(--text-muted);">ID: CERT-001</span>
+          <a id="modalCertVerify" href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="grad-cta px-5 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2">
+            <span>Verify Credential</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
